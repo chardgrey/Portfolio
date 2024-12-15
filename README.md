@@ -8,3 +8,4 @@ Instructions on how to install and set up the project.
 
 ```sh
 npm install
+```
