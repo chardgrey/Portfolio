@@ -1,6 +1,6 @@
-# Project Title
+# Portfolio
 
-A brief description of what this project does and who it's for.
+About my project that i've done
 
 ## Installation
 
