@@ -20,16 +20,6 @@ import 'aos/dist/aos.css';
 
 function Home() {
 
-  const [activeSkill, setActiveSkill] = useState('react');
-
-    const skillDescriptions = {
-      react: "Building modern and responsive user interfaces with React.js, utilizing hooks, context API, and state management solutions.",
-      node: "Developing scalable backend services with Node.js, creating RESTful APIs and handling server-side operations.",
-      mysql: "Managing relational databases with MySQL, designing efficient schemas and writing optimized queries.",
-      tailwind: "Creating beautiful and responsive designs using Tailwind CSS utility-first framework with custom configurations.",
-      mongodb: "Working with NoSQL databases using MongoDB, handling document-based data structures and aggregation pipelines."
-    };
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -40,70 +30,59 @@ function Home() {
   return (
     <div className=' bg-gr3y text-gray-200 font-markazi text-2xl'>
 
-      <Navbar 
-        home='#home'
-        expertise='#expertise'
-        projects='#projects'
-        contact='#contact' 
-        
-      />
+      <div className='hidden md:block'>
+        <Navbar 
+          home='#home'
+          expertise='#expertise'
+          projects='#projects'
+          contact='#contact' 
+        />
+      </div>
 
-        <div id="home" className='scroll-mt-16 flex flex-col items-start justify-center px-60 h-screen'>
-        
-          <div className='flex flex-col'>
-            <div className='flex flex-row items-center justify-start gap-5'>
-              
+      <div className='block md:hidden h-16'></div>
 
-              <div className='text-5xl text-start '>
+<div id="home" className='scroll-mt-16 flex flex-col items-start justify-center px-4 md:p-20 lg:p-60 h-screen'>
+        <div className='flex flex-col'>
+          <div className='flex flex-col md:flex-row items-center justify-start gap-5'>
+            <div className='text-5xl text-start'>
               <div>
-                  
-                    <h1 className='font-markazi text-3xl tracking-tighter text-gray-200 typewriter'>
-                      I am <span className='text-blue-500 text-5xl font-markazi font-bold'>Richard</span><br/>
-                    </h1>
-                  
-                  
-                </div>
-                <div className='text-4xl pt-6 text-gray-200 upward'>
-          A <span className='bg-gradient-to-r  from-blue-500 via-cyan-400 to-blu3 text-transparent bg-clip-text text-5xl font-markazi font-bold'>Backend Web Developer</span> +
-           <br/> <span className='bg-gradient-to-r from-blue-500 via-cyan-400 to-blu3 text-transparent bg-clip-text text-5xl font-markazi font-bold'>Frontend Web Developer</span>
-        </div>
-                    <div className='text-2xl pt-6 text-gray-400 upward2'>
-                    Focused on creating reliable, secure, and efficient backend for web applications.
-                    Experienced in building web systems with Node.js, Express.js, and MySQL, and also knowledgeable in ReactJs.
-                    </div>
-                    <div className='flex items-center justify-start upward2 pt-6 pr-2'>
-                          <button className='blink bg-gr3y border border-gray-700 rounded-full 
-                                            text-center text-gray-200 font-markazi text-xl 
-                                            px-4 py-1 shadow-sky-400 flex items-center gap-2
-                                            hover:bg-gradient-to-r  hover:bg-sky-800 hover:border-gray-600 hover:text-gray-200
-                                            hover:border-transparent transition-all duration-300'>
-                            Contact <FontAwesomeIcon icon={faPhoneAlt} className='inline-flex'/>
-                          </button>
-                        </div>
+                <h1 className='font-markazi text-3xl tracking-tighter text-gray-200 typewriter'>
+                  I am <span className='text-blue-500 text-5xl font-markazi font-bold'>Richard</span><br/>
+                </h1>
               </div>
-
-              <div className='flex-shrink-0 px-6 bounce-in flex flex-col items-center justify-center h-[500px] w-[500px]'>
-                
-                <img src={profile} alt="profile" className='rounded-full profile border border-grey-300' />
+              <div className='text-4xl pt-6 text-gray-200 upward'>
+                A <span className='bg-gradient-to-r from-blue-500 via-cyan-400 to-blu3 text-transparent bg-clip-text text-5xl font-markazi font-bold'>Backend Web Developer</span> +
+                <br/> <span className='bg-gradient-to-r from-blue-500 via-cyan-400 to-blu3 text-transparent bg-clip-text text-5xl font-markazi font-bold'>Frontend Web Developer</span>
               </div>
-              
-
-
+              <div className='text-2xl pt-6 text-gray-400 upward2'>
+                Focused on creating reliable, secure, and efficient backend for web applications.
+                Experienced in building web systems with Node.js, Express.js, and MySQL, and also knowledgeable in ReactJs.
+              </div>
+              <div className='flex items-center justify-start upward2 pt-6 pr-2'>
+                <button className='blink bg-gr3y border border-gray-700 rounded-full 
+                                  text-center text-gray-200 font-markazi text-xl 
+                                  px-4 py-1 shadow-sky-400 flex items-center gap-2
+                                  hover:bg-gradient-to-r hover:bg-sky-800 hover:border-gray-600 hover:text-gray-200
+                                  hover:border-transparent transition-all duration-300'>
+                  Contact <FontAwesomeIcon icon={faPhoneAlt} className='inline-flex'/>
+                </button>
+              </div>
             </div>
-            
-
-            
+            <div className='flex-shrink-0 px-6 bounce-in flex flex-col items-center justify-center h-[200px] w-[200px] md:h-[300px] md:w-[300px] lg:h-[500px] lg:w-[500px]'>
+              <img src={profile} alt="profile" className='rounded-full profile border border-grey-300' />
+            </div>
           </div>
-          <div className="w-full flex flex-col items-center justify-center absolute bottom-8 left-1/2 transform -translate-x-1/2">
-            <a href='#expertise' className='upward2 flex flex-col items-center justify-center gap-4'>
-              <p className='blink text-center text-xl'>Learn more about me</p> 
-              <FontAwesomeIcon 
-                icon={faAnglesDown} 
-                className='text-blu3 blink w-8 h-8'
-              />
-            </a>
-          </div>
-          </div>
+        </div>
+        <div className="w-full flex-col items-center justify-center absolute bottom-8 left-1/2 transformh hidden md:block -translate-x-1/2">
+          <a href='#expertise' className='upward2 flex flex-col items-center justify-center gap-4'>
+            <p className='blink text-center text-xl'>Learn more about me</p> 
+            <FontAwesomeIcon 
+              icon={faAnglesDown} 
+              className='text-blu3 blink w-8 h-8'
+            />
+          </a>
+        </div>
+      </div>
           
           <div id="expertise" className="flex flex-col items-center justify-center min-h-screen px-4 md:px-16 lg:px-24">
               <h1 className="text-5xl font-markazi text-gray-200 mb-12" data-aos="fade-down">Expertise</h1>
@@ -181,7 +160,7 @@ function Home() {
                   </div>
                   
                 </div>
-                <div className="w-full flex flex-col items-center justify-center mt-16">
+                <div className="w-full flex-col items-center justify-center mt-16 hidden md:block">
                     <a href='#projects' className='upward2 flex flex-col items-center justify-center gap-4'>
                       <p className='blink text-center text-xl'>View My Past Projects</p> 
                       <FontAwesomeIcon 
@@ -252,7 +231,7 @@ function Home() {
 
                   
                 </div>
-                <div className="w-full flex flex-col items-center justify-center mt-16">
+                <div className="w-full flex-col items-center justify-center mt-16 hidden md:block">
                     <a href='#contact' className='upward2 flex flex-col items-center justify-center gap-4'>
                       <p className='blink text-center text-xl'>Wants to collaborate ?</p> 
                       <FontAwesomeIcon 
@@ -266,30 +245,31 @@ function Home() {
 
           <div id="contact" className="flex flex-col items-center text-gray-300 justify-center min-h-screen px-4 md:px-16 lg:px-24">
             <div className="flex flex-col items-center justify-center min-h-screen px-4 md:px-16 lg:px-24">
-                  <h1 className="text-5xl font-markazi text-white mb-12" data-aos="fade-down">Contact</h1>
-                  <div className="flex flex-row items-center justify-center gap-6">
-                    <div className="flex items-center justify-center gap-2">
-                      <FontAwesomeIcon className='text-2xl text-gray-300' icon={faEnvelope} />
-                      <p className="text-2xl">cardosarichard@gmail.com</p>
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <a href='_blank' className="text-2xl flex items-center ">
-                        <img className='w-[50px] h-[50px]' src={github} alt='github' /> chardgrey
-                      </a>
-                    </div>
-                    <div className="flex items-center justify-center gap-2">
-                      <a href='_blank' className="text-2xl flex items-center gap-2">
-                        <img className='w-[30px] h-[30px]' src={fb} alt='fb' /> chard.cardosa
-                      </a>
-                    </div>
-                    <div className="flex items-center justify-center gap-2">
-                      <a href='_blank' className="text-2xl flex items-center gap-2">
-                        <img className='w-[30px] h-[30px]' src={ig} alt='ig' /> chardgrey
-                      </a>
-                    </div>
-                  </div>
+              <h1 className="text-5xl font-markazi text-white mb-12" data-aos="fade-down">Contact</h1>
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+                <div className="flex items-center justify-center gap-2">
+                  <FontAwesomeIcon className='text-2xl text-gray-300' icon={faEnvelope} />
+                  <p className="text-2xl">cardosarichard@gmail.com</p>
                 </div>
+                <div className="flex items-center justify-center">
+                  <a href='_blank' className="text-2xl flex items-center ">
+                    <img className='w-[50px] h-[50px]' src={github} alt='github' /> chardgrey
+                  </a>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <a href='_blank' className="text-2xl flex items-center gap-2">
+                    <img className='w-[30px] h-[30px]' src={fb} alt='fb' /> chard.cardosa
+                  </a>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <a href='_blank' className="text-2xl flex items-center gap-2">
+                    <img className='w-[30px] h-[30px]' src={ig} alt='ig' /> chardgrey
+                  </a>
+                </div>
+              </div>
             </div>
+          </div>
+
           </div>
    
   )
