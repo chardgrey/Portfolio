@@ -14,9 +14,12 @@ import asrai from '../images/logo.svg'
 import communecards from '../images/Communecards.svg'
 import ig from '../images/ig.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhoneAlt, faAnglesDown,faEnvelope,faPhone,} from '@fortawesome/free-solid-svg-icons';
+import { faPhoneAlt, faAnglesDown,faEnvelope,faPhone} from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function Home() {
 
@@ -26,6 +29,17 @@ function Home() {
       once: true
     });
   }, []);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1, // Changed to 1 to show full width cards
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true
+  };
 
   return (
     <div className=' bg-gr3y text-gray-200 font-markazi text-2xl'>
@@ -175,73 +189,109 @@ function Home() {
 
           <div id="projects" className="flex flex-col items-center justify-center min-h-screen px-4 md:px-16 lg:px-24">
               <h1 className="text-5xl font-markazi text-gray-200 mb-12" data-aos="fade-down">Projects</h1>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-                <div className="flex flex-row items-center gap-8">
-                  <div data-aos="fade-right" data-aos-delay="100">
-                    <div className="h-[150px] w-[150px] rounded border-gray-700 shadow-lg border 
-                                  text-lg flex flex-col items-center justify-center gap-2 
-                                  font-markazi bg-gr3y p-4">
-                      <img src={sultan} alt="sultan" className="h-21 w-auto" />
-                    </div>
-                  </div>
-                    <div className="max-w-xl" data-aos="fade-left" data-aos-delay="100">
-                      <p className="text-gray-100 text-2xl">Backend developer for an offerwall website using Node.js and Fastify, while also using MongoDB as the database. This project is helping me expand my skills in backend development, API design, and database management.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-row items-center gap-8">
-                    <div data-aos="fade-right" data-aos-delay="200">
-                      <div className="h-[150px] w-[150px] rounded border-gray-700 shadow-lg border 
-                                    text-lg flex flex-col items-center justify-center gap-2 
-                                    font-markazi bg-gr3y p-4">
-                        <img src={jayds} alt="jayds" className="h-20 w-auto rounded-full" />
+              <div className="w-full max-w-7xl mx-auto">
+                <Slider {...settings} className="project-slider">
+                  {/* Template for all project cards - copy this structure for each project */}
+                  <div className="px-4">
+                    <div className="bg-gray-800/30 rounded-xl overflow-hidden hover:bg-gray-800/50 transition-all duration-300 border border-gray-700/50 hover:border-blue-500/50">
+                      <div className="flex flex-col md:flex-row">
+                        <div className="w-full md:w-1/2 h-[300px] relative overflow-hidden bg-gray-900/50">
+                          <img 
+                            src={sultan} 
+                            alt="sultan" 
+                            className="absolute inset-0 w-full h-full object-contain p-8 hover:scale-110 transition-transform duration-500" 
+                          />
+                        </div>
+                        <div className="w-full md:w-1/2 p-8">
+                          <h3 className="text-3xl font-bold text-blue-400 mb-4">RichSultan</h3>
+                          <p className="text-gray-300 text-xl mb-6">Developed Offerwall websites with real-time chat using WebSockets, built with Node.js, the Fastify framework, and MongoDB as the databases</p>
+                          <div className="flex flex-wrap gap-3">
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Node.js</span>
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">MongoDB</span>
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Fastify</span>
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">WebSocket</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className="max-w-xl" data-aos="fade-left" data-aos-delay="200">
-                      <p className="text-gray-100 text-2xl">Developed e-commerce websites with real-time chat using WebSockets, built with Node.js, the Express framework, and MySQL as the databases for a thesis project.</p>
-                    </div>
                   </div>
-
-                  <div className="flex flex-row items-center gap-8">
-                    <div data-aos="fade-right" data-aos-delay="300">
-                      <div className="h-[150px] w-[150px] rounded border-gray-700 shadow-lg border 
-                                    text-lg flex flex-col items-center justify-center gap-2 
-                                    font-markazi bg-gr3y p-4">
-                        <img src={asrai} alt="asrai" className="h-20 w-auto" />
-                      </div>
-                    </div>
-                    <div className="max-w-xl" data-aos="fade-left" data-aos-delay="300">
-                      <p className="text-gray-100 text-2xl">Created a frontend dashboard for a proxy website using HTML, CSS, and JavaScript. The project focused on building a user-friendly interface with interactive features and smooth navigation.</p>
-                    </div>
-                  </div>
-
-
-                  <div className="flex flex-row items-center gap-8">
-                    <div data-aos="fade-right" data-aos-delay="400">
-                      <div className="h-[150px] w-[150px] rounded border-gray-700 shadow-lg border 
-                                    text-lg flex flex-col items-center justify-center gap-2 
-                                    font-markazi bg-gr3y p-4">
-                        <img src={communecards} alt="communecards" className="h-16 w-auto" />
-                      </div>
-                    </div>
-                    <div className="max-w-xl" data-aos="fade-left" data-aos-delay="400">
-                      <p className="text-gray-100 text-2xl">My web development journey began as a Junior Frontend Developer at Communecards, a school project focused on an interactive quiz-based platform. Starting with HTML and CSS, I quickly transitioned to Tailwind, guided by senior developer.</p>
-                    </div>
-                  </div>
-
-                  
-                </div>
-                <div className="w-full flex-col items-center justify-center mt-16 hidden md:block">
-                    <a href='#contact' className='upward2 flex flex-col items-center justify-center gap-4'>
-                      <p className='blink text-center text-xl'>Wants to collaborate ?</p> 
-                      <FontAwesomeIcon 
-                        icon={faAnglesDown} 
-                        className='text-blu3 blink w-8 h-8'
-                      />
-                    </a>
-                </div>
+                 
                 
-          </div>
+
+                  <div className="px-4">
+                    <div className="bg-gray-800/30 rounded-xl overflow-hidden hover:bg-gray-800/50 transition-all duration-300 border border-gray-700/50 hover:border-blue-500/50">
+                      <div className="flex flex-col md:flex-row">
+                        <div className="w-full md:w-1/2 h-[300px] relative overflow-hidden bg-gray-900/50">
+                          <img 
+                            src={jayds} 
+                            alt="jayds" 
+                            className="absolute inset-0 w-full h-full object-contain p-8 hover:scale-110 transition-transform duration-500" 
+                          />
+                        </div>
+                        <div className="w-full md:w-1/2 p-8">
+                          <h3 className="text-3xl font-bold text-blue-400 mb-4">Jayds E-commerce</h3>
+                          <p className="text-gray-300 text-xl mb-6">Developed e-commerce websites with real-time chat using WebSockets, built with Node.js, the Express framework, and MySQL as the databases for a thesis project.</p>
+                          <div className="flex flex-wrap gap-3">
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Node.js</span>
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">MySQL</span>
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">WebSocket</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="px-4">
+                    <div className="bg-gray-800/30 rounded-xl overflow-hidden hover:bg-gray-800/50 transition-all duration-300 border border-gray-700/50 hover:border-blue-500/50">
+                      <div className="flex flex-col md:flex-row">
+                        <div className="w-full md:w-1/2 h-[300px] relative overflow-hidden bg-gray-900/50">
+                          <img 
+                            src={asrai} 
+                            alt="asrai" 
+                            className="absolute inset-0 w-full h-full object-contain p-8 hover:scale-110 transition-transform duration-500" 
+                          />
+                        </div>
+                        <div className="w-full md:w-1/2 p-8">
+                          <h3 className="text-3xl font-bold text-blue-400 mb-4">Asrai Dashboard</h3>
+                          <p className="text-gray-300 text-xl mb-6">Created a frontend dashboard for a proxy website using HTML, CSS, and JavaScript. The project focused on building a user-friendly interface with interactive features and smooth navigation.</p>
+                          <div className="flex flex-wrap gap-3">
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">HTML</span>
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">CSS</span>
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">JavaScript</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="px-4">
+                    <div className="bg-gray-800/30 rounded-xl overflow-hidden hover:bg-gray-800/50 transition-all duration-300 border border-gray-700/50 hover:border-blue-500/50">
+                      <div className="flex flex-col md:flex-row">
+                        <div className="w-full md:w-1/2 h-[300px] relative overflow-hidden bg-gray-900/50">
+                          <img 
+                            src={communecards} 
+                            alt="communecards" 
+                            className="absolute inset-0 w-full h-full object-contain p-8 hover:scale-110 transition-transform duration-500" 
+                          />
+                        </div>
+                        <div className="w-full md:w-1/2 p-8">
+                          <h3 className="text-3xl font-bold text-blue-400 mb-4">Communecards</h3>
+                          <p className="text-gray-300 text-xl mb-6">My web development journey began as a Junior Frontend Developer at Communecards, a school project focused on an interactive quiz-based platform. Starting with HTML and CSS, I quickly transitioned to Tailwind.</p>
+                          <div className="flex flex-wrap gap-3">
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">React</span>
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Tailwind</span>
+                            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">JavaScript</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </Slider>
+                 </div>
+
+
+            </div>
 
           <div id="contact" className="flex flex-col items-center text-gray-300 justify-center min-h-screen px-4 md:px-16 lg:px-24">
             <div className="flex flex-col items-center justify-center min-h-screen px-4 md:px-16 lg:px-24">
