@@ -44,7 +44,7 @@ const Hero = () => {
 
   useEffect(() => {
     // Typing animation
-    const text = "Backend Web Developer + Frontend Web Developer";
+    const text = "Full Stack Web Developer";
     let index = 0;
     const timer = setInterval(() => {
       if (index < text.length) {
@@ -104,7 +104,7 @@ const Hero = () => {
               Richard
             </motion.h2>
             <motion.div 
-              className="text-xl md:text-3xl lg:text-4xl text-gray-200 min-h-[80px] md:min-h-[120px]"
+              className="text-2xl md:text-4xl lg:text-6xl text-gray-200 min-h-[80px] md:min-h-[120px]"
               variants={itemVariants}
             >
               <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 text-transparent bg-clip-text font-semibold">
