@@ -25,7 +25,7 @@ function Navbar({home, projects, expertise, contact}) {
 
         {/* Mobile Navigation */}
         <div className="md:hidden flex justify-between items-center h-16">
-          <div className="text-xl font-markazi text-gray-300">Portfolio</div>
+          <div className="text-xl font-markazi text-gray-300">ChardGrey</div>
           <button onClick={toggleMenu} className="text-gray-300 text-2xl">
             <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
           </button>
